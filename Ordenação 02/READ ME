@@ -1,0 +1,70 @@
+Thulio Guilherme Silva de Amorim - 11328381 - 16 de agosto de 2016
+
+Questão 1 - Em quais situações o insertion sort, o merge sort, o quick sort e o heap sort apresentam sua melhor complexidade? Forneça exemplos para cada algoritmo.
+
+Resolução: A resposta desta questão se encontra no arquivo apa-ord2.pdf
+
+
+Questão 2 - Implemente o quicksort para ser aplicado a uma lista simplesmente encadeada
+
+Resolução: A resolução deste problema foi implementada de duas maneiras distintas. Na primeira, linked_list_quicksort_value são trocados os valores para realizar a partição do Quicksort e na segunda resolução, linked_list_quicksort_pointer, os ponteiros são redirecionados ao invés de realizar a troca dos valores.
+
+Programa
+linked_list_quicksort_value.c e linked_list_quicksort_pointer.c
+
+Entrada
+A primeira linha de entrada contém um inteiro N que representa o tamanho do vetor a ser ordenado. A segunda linha contém os n elementos que compõem o vetor de entrada.
+
+Saída
+É exibido na tela o vetor de entrada ordenado.
+
+Exemplo de entrada
+10
+10 50 20 30 5 8 100 28 36 55
+
+Exemplo de saída
+5 8 10 20 28 30 36 50 55 100
+
+
+Questão 3 - Dado um vetor ordenado de inteiros que pode apresentar elementos repetidos e que foi rotacionado N vezes (você não sabe o valor de N). Escreva uma função que busque a posição de um dado elemento de forma eficiente. Se o elemento estiver presente repetidas vezes, retorne a posição da primeira ocorrência deste elemento. 
+
+Resolução: A busca do elemento é realizada da seguinte maneira: o elemento é comparado com o elemento posicionado no centro do vetor, dependendo se o elemento for menor ou maior e se o vetor estiver em ordem crescente ou decrescente, a busca é redirecionada para uma das metades do vetor. Por exemplo, se o vetor estiver ordenado de forma crescente e o elemento do centro for menor que o elemento procurado, então, se o elemento procurado estiver no vetor, ele se encontra na metade da direita do vetor. Assim, apenas com uma comparação, a busca é reduzida pela metade. A complexidade do algoritmo é dada por T(n) = T(n/2) + 1, dando que a complexidade do algoritmo é O(n^0 * log n) = O(log n).
+
+Programa
+find_sorted.c
+
+Entrada
+A primeira linha de entrada é composta por dois inteiros, o primeiro inteiro N representa o tamanho do vetor a ser ordenado e o segundo inteiro M representa o elemento a ser procurado. A segunda linha contém os n elementos que compoem o vetor de entrada.
+
+Saída
+É exibido na tela o elemento que foi procurado e sua posição no vetor de entrada.
+
+Exemplo de entrada
+10 5
+67 90 85 100 5 33 12 30 40 10
+
+Exemplo de saída
+5
+
+
+Questão 4 - São dados dois vetores como entrada, sendo o primeiro um vetor de caracteres contendo apenas códigos que representam o tipo de cor a que se referem (“R”, “G” ou “B”) e, o segundo um vetor de inteiros contendo os valores dos componentes das cores. Escreva uma função que ordene os dois vetores de tal forma que as cores referentes a “R” precedam as cores referentes a “G”, que por sua vez precedam as cores referentes a “B”
+
+Resolução: As especificações desta questão ficaram meio em aberto, então eu definir algumas. Os valores das componentes R, G e B são valores de inteiros que estão contidos no intervalo [0, 255]. No valores correspondentes a cor de cada componente é aplicado o deslocamento de acordo com o caractere associado, este deslocamento gera um valor distinto. Por exemplo, o valor 0 associado com o caractere B quando aplicado o deslocamento é obtido o valor 65536. No caso do valor 0 associado com o caractere G quando aplicado o deslocamento é obtido o valor 256. Depois disso, os valores são ordenados e o efeito do deslocamento é revertido.
+
+Programa
+color_sorting.c
+
+Entrada
+A primeira linha de entrada contem um inteiro N que corresponde o tamanho do vetor de entrada. A segunda linha contém o primeiro vetor que representa o tipo de cor. A terceira linha contém os valores inteiros contendo os valores dos componentes das cores.
+
+Saída
+É exibido na tela o vetor ordenado primeiramente por que tipo de cor representam e depois pelo valor de cada componente.
+
+Exemplo de entrada
+8
+R G B G R B B R
+100 200 150 220 0 15 200 200
+
+Exemplo de saída
+R R R G G B B B 
+0 100 200 200 220 15 150 200 

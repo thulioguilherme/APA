@@ -1,0 +1,16 @@
+Questão - Implemente os seguintes algoritmos de ordenação: Selection, Insertion sort, Quicksort, Heapsort e Mergesort. 
+
+Resolução: Todos os programas seguem o mesmo padrão de entrada/saída detalhado abaixo.
+
+Entrada
+A primeira linha contém um inteiro N que representa o tamanho do vetor a ser ordenado. A Segunda linha contém os N inteiros que representam o vetor.
+
+Saída
+É exibido na tela o vetor de entrada ordenano em forma decrescente
+
+Exemplo de entrada
+10
+20 50 30 10 5 5 30 40 23 3
+
+Exemplo de saída
+3 5 5 10 20 23 30 30 40 50
