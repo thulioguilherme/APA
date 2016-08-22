@@ -67,4 +67,46 @@ R G B G R B B R
 
 Exemplo de saída
 R R R G G B B B 
-0 100 200 200 220 15 150 200 
+0 100 200 200 220 15 150 200
+
+Questão 5 - Escreva uma função que compre duas strings lexicograficamente, tendo em mente que estas palavras podem conter dígrafos (duas letras juntas que representam uma única letra — como o ch do espanhol). Use esta função para ordenar uma lista de palavras.
+
+Resolução: O programa apenas considera dígrafo ch, ll e rr. Na comparação para ver qual caractere vem antes é considerado o seguinte alfabeto: {A – B – C – CH – D – E – F – G – H – I – J – K – L – LL – M – N – O – P – Q – R – RR – S – T – U – V – W – X – Y – Z}.
+
+Entrada
+A primeira linha de entrada contem um inteiro N que corresponde o número de strings. A segunda linha contém as N strings que serão ordenadas.
+
+Saída
+É exibido na tela as strings ordenadas levando em consideração os dígrafos.
+
+Exemplo de entrada
+5
+acho aco ello elo erro
+
+Exemplo de saída
+aco
+acho
+elo
+ello
+erro
+
+Questão 6 - Escreva um método que ordene um vetor de inteiros de tal forma que anagramas fiquem lado a lado.
+
+Resolução: A string de entrada é ordenada de acordo com a tabela ASCII e depois cada caractere pertecence a string é multiplicado por um número primo distinto fazendo com que a partir do valor obtido por esta operação é possivel ordenar as string e posicionar os anagramas lado a lado.
+
+Entrada
+A primeira linha de entrada contem um inteiro N que corresponde o número de strings. A segunda linha contém as N strings que serão ordenadas.
+
+Saída
+É exibido na tela as strings ordenadas levando em consideração que os anagramas devem ficar lado a lado.
+
+Exemplo de entrada
+5
+ana naa amor roma grecia
+
+Exemplo de saída
+ana
+naa
+amor
+roma
+grecia

@@ -1,54 +1,31 @@
 #include <stdio.h>
-#include <math.h>
 
-int findByValue(int *array, int value, int sizeArray){
-	int middle, boundUpper, boundLower;
+//Just work on ascending arrays and without duplicate keys
+int findByValue(int *array, int key, int low, int high){
+	if(low > high) return -1;
 	
-	boundUpper = sizeArray;
-	boundLower = 0;
-	middle = boundUpper / 2;
+	int middle = (low + high) / 2;
+	
+	if(array[middle] == key) return middle;
 
-	if(array[boundLower] == array[boundUpper]) return boundUpper;
-
-	if(array[boundUpper] > array[boundLower]){
-		while( (boundUpper - boundLower) > 1){
-			if(array[middle] < value){
-				boundLower = middle;
-				middle = (boundUpper + middle) / 2;
-			}else{
-				boundUpper = middle;
-				middle = middle / 2;
-			}
-		} 
-
-		if(array[boundLower] == value){
-			return boundLower;
-		}else{
-			return boundUpper;
+	if(array[low] <= array[middle]){
+		if(key >= array[low] && key <= array[middle]){
+			return findByValue(array, key, 1, middle - 1);
 		}
-	}else{
-		while( (boundUpper - boundLower) > 1){
-			if(array[middle] > value){
-				boundLower = middle;
-				middle = (boundUpper + middle) / 2;
-			}else{
-				boundUpper = middle;
-				middle = middle / 2;
-			}
-		} 
-
-		if(array[boundLower] == value){
-			return boundLower;
-		}else{
-			return boundUpper;
-		}
+		return findByValue(array, key, middle + 1, high);
 	}
+
+	if(key >= array[middle] && key <= array[high]){
+		return findByValue(array, key, middle +1, high);
+	}
+
+	return findByValue(array, key, 1, middle - 1);
 }
 
 int main(){
-	int n, value, ret;
+	int n, key, ret;
 
-	scanf("%d %d", &n, &value);
+	scanf("%d %d", &n, &key);
 
 	int array[n];
 
@@ -56,6 +33,6 @@ int main(){
 		scanf("%d", &array[i]);
 	}
 
-	ret = findByValue(array, value, n - 1);
+	ret = findByValue(array, key, 0, n - 1);
 	printf("%d\n", ret + 1);
 }

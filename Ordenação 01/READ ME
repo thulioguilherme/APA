@@ -6,7 +6,7 @@ Entrada
 A primeira linha contém um inteiro N que representa o tamanho do vetor a ser ordenado. A Segunda linha contém os N inteiros que representam o vetor.
 
 Saída
-É exibido na tela o vetor de entrada ordenano em forma decrescente
+É exibido na tela o vetor de entrada ordenano em forma crescente
 
 Exemplo de entrada
 10

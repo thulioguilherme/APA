@@ -11,19 +11,10 @@ void showVector(int* vector, int size){
 	printf("\n");
 }
 
-void swap(int i, int j, int* vector){
-	int tmp = vector[i];
-	vector[i] = vector[j];
-	vector[j] = tmp;	
-}
-
 int partition(int* vector, int begin, int end){
-	int pivot, top, i, pIndex;
-	pIndex = begin + (rand() % (end - begin)); //Random pivot
-	pivot = vector[pIndex];
-	swap(begin, pIndex, vector);
+	int pivot, top, i;
+	pivot = vector[begin];
 	top = begin;
-
 	for(i = begin + 1; i <= end; i++){
 		if(vector[i] < pivot){
 			vector[top] = vector[i];

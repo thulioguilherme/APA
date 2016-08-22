@@ -3,8 +3,6 @@
 
 #include <stdio.h>
 
-int largest, n, sizeVector;
-
 void showVector(int* vector, int size){
 	for(int i = 0; i < size; i++){
 		printf("%d ", vector[i]);
@@ -18,38 +16,39 @@ void swap(int i, int j, int* vector){
 	vector[j] = tmp;	
 }
 
-void maxHeap(int* vector, int index){
+void maxHeap(int* vector, int index, int size){
 	int left = 2*index;
 	int right = 2*index + 1;
-	if(left <= n && vector[left] > vector[index]){
+	int largest;
+	if(left <= size && vector[left] > vector[index]){
 		largest = left;
 	}else{
 		largest = index;
 	}
 
-	if(right <= n && vector[right] > vector[largest]){
+	if(right <= size && vector[right] > vector[largest]){
 		largest = right;
 	}
 
 	if(largest != index){
 		swap(index, largest, vector);
-		maxHeap(vector, largest);
+		maxHeap(vector, largest, size);
 	}	
 }
 
-void buildHeap(int* vector){
-	 n = sizeVector - 1;
+void buildHeap(int* vector, int size){
+	 int n = size - 1;
 	 for(int i = n/2; i >= 0; i--){
-	 	maxHeap(vector, i);
+	 	maxHeap(vector, i, size);
 	 }
 }
 
-void heapsort(int* vector){ //Best case: O(n*logn) - Worst case: O(n*logn)
-	buildHeap(vector);
-	for(int i = n; i > 0; i--){
+void heapsort(int* vector, int size){ //Best case: O(n*logn) - Worst case: O(n*logn)
+	buildHeap(vector, size);
+	for(int i = size; i > 0; i--){
 		swap(0, i, vector);
-		n = n - 1;
-		maxHeap(vector, 0);
+		size = size - 1;
+		maxHeap(vector, 0, size);
 	}
 }
 
@@ -64,7 +63,7 @@ int main(){
 		scanf("%d", &vector[i]);
 	}
 
-	heapsort(vector);
+	heapsort(vector, n);
 
 	showVector(vector, n);
 }
