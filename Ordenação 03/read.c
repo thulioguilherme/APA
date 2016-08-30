@@ -207,7 +207,7 @@ int main(int argc, char* argv[]){
 		fprintf(stderr, "\tUsing Quicksort - %f second(s)\n", total);
 	}else if(atoi(argv[4]) == 1){
 		start = clock();
-		heapsort(vector, n);
+		heapsort(vector, n - 1);
 		end = clock();
 		total = (double)(end - start) / CLOCKS_PER_SEC;
 		fprintf(output, "\tUsing Heapsort - %f second(s)\n", total);
