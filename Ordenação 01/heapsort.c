@@ -63,7 +63,7 @@ int main(){
 		scanf("%d", &vector[i]);
 	}
 
-	heapsort(vector, n);
+	heapsort(vector, n - 1);
 
 	showVector(vector, n);
 }
