@@ -1,0 +1,3 @@
+#execute.mk - O programa é executado com as entradas registradas no arquivo input.txt e mostra uma comparação com a saída esperada que se encontra no arquivo output.txt
+
+#coin-paper - Parte escrita do trabalho, descreve o problema, o formato da entrada e saída, e o teste de casos
